@@ -1,0 +1,52 @@
+<!DOCTYPE html >
+<html>
+ 
+<head>
+    <title>Angular 1 and 2 Integration</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+    <script src="https://rawgithub.com/systemjs/systemjs/0.19.6/dist/system.js"></script>
+    <script src="https://code.angularjs.org/tools/typescript.js"></script>
+    <script src="https://code.angularjs.org/2.0.0-beta.0/angular2-polyfills.js"></script>
+    <script src="https://code.angularjs.org/2.0.0-beta.0/Rx.js"></script>
+    <script src="https://code.angularjs.org/2.0.0-beta.0/angular2.dev.js"></script>
+    <script src="https://code.angularjs.org/2.0.0-beta.0/upgrade.dev.js"></script>
+ 
+    <script src="src/app.js"></script>
+    <script src="src/ng1-directive/angular-one.directive.js"></script>
+    <script src="src/hybrid-component/angular-one-two.component.js"></script>
+ 
+    <script>
+        System.config({
+            transpiler: 'typescript',
+            typescriptOptions: {
+                emitDecoratorMetadata: true
+            },
+            packages: {
+                'src': {
+                    defaultExtension: 'ts'
+                }
+            }
+        });
+ 
+    </script>
+ 
+    <script>
+        System.import('src/boot');
+ 
+    </script>
+</head>
+ 
+<body>
+    <p>Result of angular 1 directive and angular 2 component used separately</p>
+    <angular-one></angular-one>
+    <angular-two></angular-two>
+    <hr>
+    <p>Result of mixing angular 1 directive and angular 2 component into another angular 1 directive</p>
+    <angular-one-two></angular-one-two>
+    <hr>
+    <p>Result of mixing angular 1 directive and angular 2 component into another angular 2 component</p>
+    <angular-two-one></angular-two-one>
+</body>
+ 
+</html>
+ 
